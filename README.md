@@ -15,4 +15,4 @@ There is also a README from React inside this project for more information
 How to set up:
 - Open the back-end folder in VS Code
 - In your terminal run `npm install` 
-- In your terminal run `npm start`
+- In your terminal run `node app.js`
