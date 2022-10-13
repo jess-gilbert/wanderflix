@@ -1,6 +1,6 @@
 .Wallpaper {
     background-image:
-        url("/Users/nicolaward/Desktop/wip/src/images/WFBackground.jpg");
+        url("../images/WFBackground.jpg");
     background-size: cover;
     background-position: center;
     height: 100vh;
