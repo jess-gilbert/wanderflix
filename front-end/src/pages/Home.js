@@ -1,6 +1,10 @@
-import WanderflixBG from '../images/WanderflixBG.jpg'
+import './Home.css';
 
 export default function Home() {
-    return
-    <img className="overlay" style={{ background: `url(${WanderflixBG})` }} />
+    return (
+        <div className="Wallpaper">
+            <p></p>
+            <p></p>
+        </div>
+    )
 }

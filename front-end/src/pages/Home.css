@@ -1,0 +1,12 @@
+.Wallpaper {
+    background-image:
+        url("/Users/nicolaward/Desktop/wip/src/images/WFBackground.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin-top: -50px;
+    font-size: 50px;
+    opacity: 80%;
+
+    background-repeat: no-repeat;
+}
