@@ -1,5 +1,5 @@
 import { Link, useMatch, useResolvedPath } from "react-router-dom"
-import WanderflixLogo from '../images/WFLogo.png';
+import WanderflixLogo from '../images/WLogo.png';
 
 export default function Navbar() {
 
@@ -7,8 +7,8 @@ export default function Navbar() {
         <nav className="nav">
             <Link to="/" className="site-title"><img src={WanderflixLogo} alt="Wanderflix Logo" /></Link>
             <ul>
-                <CustomLink to="/Login">LOG IN / SIGN UP</CustomLink>
                 <CustomLink to="/Watchlist"><i class="fa-sharp fa-solid fa-heart"></i>WATCHLIST</CustomLink>
+                <CustomLink to="/Login">SIGN IN</CustomLink>
             </ul>
         </nav>
     )
