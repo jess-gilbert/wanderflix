@@ -1,0 +1,35 @@
+.Wallpaper {
+    background-image:
+        url("../images/WFBackground.jpg");
+    background-size: cover;
+    background-position: center;
+    height: calc(100vh - 50px);
+    margin-top: 0px;
+    font-size: 50px;
+    opacity: 80%;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.SignUpForm{
+    display: flex;
+    flex-direction: column;
+    margin-top: 220px;
+    background-color: #1c3738cc;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.SignUpForm input, .SignUpForm button  {
+    margin-top: 10px;
+    width: 275px
+}
+
+.SignUpForm a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+  
