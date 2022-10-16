@@ -6,12 +6,14 @@
     background-repeat: no-repeat;
     height: 100vh;
     opacity: 80%;
-    background-repeat: no-repeat;
-} 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
 
 .Title {
     position: relative;
-    top: 55%;
     font-size: medium;
     color: white;
     font-family: auto;
@@ -27,8 +29,12 @@
     justify-content: center;
 }
 
-.input {
-    display:flex;
+.form input::placeholder {
+    font-size: 1.3rem;
+}
+
+.input   {
+    display:flex; 
     align-items: center;
     justify-content: center;
     width: 28rem;
@@ -54,6 +60,7 @@
     cursor: pointer;
     transition: background-color 250ms;
     vertical-align: middle;
+    margin-left: 10px;
 }
 
 .button:hover {
@@ -63,10 +70,9 @@
 @media (min-width:786px){
     .form {
         position: relative;
-        top: 55%;
         display: flex;
         grid-template-columns: auto 1.5fr auto;
-        flex-direction: inherit;
+        flex-direction: row;
         flex-wrap: inherit;
         align-content: center;
         justify-content: center;
@@ -83,5 +89,4 @@
 
 .logo-overlaid img {
     min-height: 150px;
-    margin-bottom: 225px;
 }

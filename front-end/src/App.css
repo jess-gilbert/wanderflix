@@ -1,9 +1,6 @@
-
-/* Example to have an app wide colour for P items
-.App p{
-    color: red
+.App p {
+    font-family: Gill Sans, sans-serif;
 }
-*/
 
 body * {
   font-family: Gill Sans, sans-serif;
@@ -20,5 +17,11 @@ body * {
 }
 
 .App input[type=submit], .App button {
+  color: #f4fff8ff;
   background-color: #00A167;
+}
+
+.App input[type=submit]:hover, .App button:Hover {
+  background-color: #1C3738;
+  border: 1px solid #f4fff8ff;
 }
