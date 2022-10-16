@@ -1,12 +1,18 @@
-.Wallpaper {
+.home-container {
     background-image:
         url("../images/WFBackground.jpg");
     background-size: cover;
     background-position: center;
-    height: 100vh;
-    margin-top: -50px;
-    font-size: 50px;
-    opacity: 80%;
-
     background-repeat: no-repeat;
+    height: 100vh;
+    opacity: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.logo-overlaid img {
+    min-height: 150px;
+    margin-bottom: 225px;
 }
