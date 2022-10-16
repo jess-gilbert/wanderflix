@@ -1,3 +1,5 @@
+DROP DATABASE wanderflix;
+
 CREATE DATABASE wanderflix;
 
 USE wanderflix;
