@@ -7,8 +7,13 @@ How to set up:
 - In your terminal run `npm install` 
 - In your terminal run `npm start`
 
-There is also a README from React inside this project for more information
+- You will also need to install the following React libraries:
 
+- In your terminal run 'npm i react-router-dom'
+- In your terminal run 'npm i react-icons'
+- In your terminal run 'npm i styled-components'
+
+There is also a README from React inside this project for more information
 
 ## Back End
 
