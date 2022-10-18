@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "09da5a86-632e-4643-b4f9-bf7d9cec3e9d",
+		"name": "wanderflix",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Rapidapi-Key",
+						"value": "6caecd3994msh1bfc789d5d316f3p1a9331jsn2919ac58be34",
+						"type": "default"
+					},
+					{
+						"key": "X-Rapidapi-Host",
+						"value": "online-movie-database.p.rapidapi.com",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Key\": \"Ozge\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:4000/signup",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "signin",
+			"request": {
+				"method": "POST",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
