@@ -9,18 +9,7 @@
 			"name": "signup",
 			"request": {
 				"method": "POST",
-				"header": [
-					{
-						"key": "X-Rapidapi-Key",
-						"value": "6caecd3994msh1bfc789d5d316f3p1a9331jsn2919ac58be34",
-						"type": "default"
-					},
-					{
-						"key": "X-Rapidapi-Host",
-						"value": "online-movie-database.p.rapidapi.com",
-						"type": "default"
-					}
-				],
+				"header": [],
 				"body": {
 					"mode": "raw",
 					"raw": "{\r\n    \"first_name\": \"SBG\",\r\n    \"last_name\":\"Project\",\r\n    \"user_email\":\"sbg@project.com\",\r\n    \"user_password\":\"CFG\"\r\n}",
