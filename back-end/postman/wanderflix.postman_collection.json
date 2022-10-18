@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "483ce667-5db9-449b-9c78-cff7c3a253d2",
+		"_postman_id": "09da5a86-632e-4643-b4f9-bf7d9cec3e9d",
 		"name": "wanderflix",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -9,10 +9,21 @@
 			"name": "signup",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "X-Rapidapi-Key",
+						"value": "6caecd3994msh1bfc789d5d316f3p1a9331jsn2919ac58be34",
+						"type": "default"
+					},
+					{
+						"key": "X-Rapidapi-Host",
+						"value": "online-movie-database.p.rapidapi.com",
+						"type": "default"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"first_name\": \"SBG\",\r\n    \"last_name\":\"Project\",\r\n    \"user_email\":\"sbg@project.com\",\r\n    \"user_password\":\"CFG\"\r\n}",
+					"raw": "{\r\n    \"Key\": \"Ozge\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,30 +51,7 @@
 			"name": "signin",
 			"request": {
 				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"user_email\":\"ozge@gmail.com\",\r\n    \"user_password\":\"1234\"\r\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://127.0.0.1:4000/signin",
-					"protocol": "http",
-					"host": [
-						"127",
-						"0",
-						"0",
-						"1"
-					],
-					"port": "4000",
-					"path": [
-						"signin"
-					]
-				}
+				"header": []
 			},
 			"response": []
 		}
