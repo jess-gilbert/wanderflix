@@ -21,11 +21,20 @@
     border-radius: 8px;
 }
 
+.SignUpForm div{
+   color: rgb(255, 119, 119);
+   margin-top: 2px;
+   font-size: 11px;
+   height: 12px
+} 
 .SignUpForm input, .SignUpForm button  {
+    margin-top: 4px;
+    width: 275px
+}
+.SignUpForm button  {
     margin-top: 10px;
     width: 275px
 }
-
 .SignUpForm a {
     display: flex;
     align-items: center;
