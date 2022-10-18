@@ -1,6 +1,8 @@
-const express = require('express')
+import express from "express";
+import mysql_controller from "mysql.js"
+// const mysql_controller = import("../back-end/mysql")
 
-const app = express()
+const app = express();
 const port = 4000
 
 app.get('/', (req, res) => {

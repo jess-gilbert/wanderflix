@@ -28,28 +28,28 @@ How to set up:
 wanderflix database has been created.
 
 users 
-- user_id varchar (15) can not be null / PRIMARY KEY , UNIQUE KEY
+- user_id INT can not be null / PRIMARY KEY / UNIQUE KEY / AI
 - user_email varchar(100) can not be null / UNIQUE KEY
 - user_password varchar(15) can not be null
+- first_name varchar(50)
+- last_name varchar (50)
 
-
-user_profile 
-- user_id varchar(15) can not be null / PRIMARY KEY, UNIQUE KEY
-- first_name varchar(50) can not be null
-- last_name varchar(50) can not be null
-- user_language varchar(50)
 
 user_watchlist 
-- user_id varchar (15) can not be null / UNIQUE KEY
+- user_id INT can not be null / UNIQUE KEY
 - movie_id varchar(50) can not be null / UNIQUE KEY
-- watchlist_id varchar (15) can not be null / PRIMARY KEY
+- watchlist_id INT (15) can not be null / PRIMARY KEY / UNIQUE KEY/ AI
 
 user_review
-- user_id varchar (15) can not be null  
+- user_id INT can not be null  
 - movie_id varchar (15) can not be null
-- review_id varchar (15) can not be null / PRIMARY KEY, UNIQUE KEY
+- review_id INT can not be null / PRIMARY KEY/ UNIQUE KEY / AI
 - star_rating varchar(5)
 - user_comment varchar(200)
+
+## POSTMAN
+-Postman folder created. Import code on your Postman workspace.
+
 
 
 
