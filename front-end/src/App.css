@@ -1,27 +1,38 @@
-.App p {
-    font-family: Gill Sans, sans-serif;
+.App {
+  text-align: center;
 }
 
-body * {
-  font-family: Gill Sans, sans-serif;
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-.App input, .App button  {
-  border: none;
-  border-radius: 8px;
-  height: 35px;
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
-.App input::placeholder{
- font-size: 10px;
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-.App input[type=submit], .App button {
-  color: #f4fff8ff;
-  background-color: #00A167;
+.App-link {
+  color: #61dafb;
 }
 
-.App input[type=submit]:hover, .App button:Hover {
-  background-color: #1C3738;
-  border: 1px solid #f4fff8ff;
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
