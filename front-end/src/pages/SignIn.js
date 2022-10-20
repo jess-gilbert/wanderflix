@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
@@ -21,9 +22,17 @@ function SignIn() {
   };
 
   useEffect(() => {
-    console.log(formErrors);
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(formValues);
+      axios({
+        method: "post",
+        url: "http://127.0.0.1:4000/signin",
+        data: {
+          user_email: formValues.email,
+          user_password: formValues.password,
+        },
+      })
+        .then((response) => console.log(response))
+        .catch((err) => console.log(err));
     }
   }, [formErrors]);
 
