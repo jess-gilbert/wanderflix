@@ -21,7 +21,6 @@ CREATE TABLE `user_watchlist` (
   `movie_id` varchar(50) NOT NULL,
   `watchlist_id` int NOT NULL AUTO_INCREMENT,
   PRIMARY KEY (`watchlist_id`),
-  UNIQUE KEY `user_id_UNIQUE` (`user_id`),
   UNIQUE KEY `watchlist_id_UNIQUE` (`watchlist_id`)
 );
 

@@ -1,9 +1,9 @@
 import mysql from "mysql2";
 import express from "express";
 import bodyParser from "body-parser";
+import session from "express-session";
 import cors from "cors";
 
-// const session = require('express-session');
 // const path = require('path');
 
 var con = mysql.createConnection({
@@ -58,8 +58,6 @@ app.post("/signup", function (req, res) {
 });
 
 
-
-
 app.post("/signin", function (req, res) {
 	console.log("req ->" + req.body)
 	let user_email = req.body.user_email;
@@ -71,6 +69,9 @@ app.post("/signin", function (req, res) {
 			if (error) throw error;
 
 			if (results.length > 0) {
+				// req.session.loggedin = true;
+				// req.session.user_email= user_email;
+				// res.redirect('/home');
 				res.send('Login successful');
 			} else {
 				res.send('Incorrect Username and/or Password!');
@@ -80,6 +81,33 @@ app.post("/signin", function (req, res) {
 	} else {
 		res.statusCode = 400
 		res.send('Please enter Username and Password!');
+		res.end();
+	}
+});
+
+
+app.post("/watchlist", function (req, res) {
+	console.log("req ->" + req.body)
+	let movie_id = req.body.movie_id;
+	let user_id = req.body.user_id;
+
+	if (movie_id && user_id) {
+		con.query('INSERT INTO user_watchlist (movie_id, user_id) VALUES (?,?) ', [movie_id, user_id], function (error, results, fields) {
+
+			if (error) throw error;
+
+			if (results.insertId) {
+				console.log(results.insertId)
+				res.send('successful');
+			} else {
+				res.statusCode = 400
+				res.send('Bad request');
+			}
+			res.end();
+		});
+	} else {
+		res.statusCode = 400
+		res.send('Bad request');
 		res.end();
 	}
 });
