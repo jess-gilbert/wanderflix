@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import "./SignUp.css";
 
@@ -16,7 +17,6 @@ function SignUp() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
-    console.log(formValues);
   };
 
   const handleSubmit = (e) => {
@@ -26,9 +26,19 @@ function SignUp() {
   };
 
   useEffect(() => {
-    console.log(formErrors);
     if (Object.keys(formErrors).length === 0 && isSubmit) {
-      console.log(formValues);
+      axios({
+        method: "post",
+        url: "http://127.0.0.1:4000/signup",
+        data: {
+          first_name: formValues.firstName,
+          last_name: formValues.lastName,
+          user_email: formValues.email,
+          user_password: formValues.password,
+        },
+      })
+        .then((response) => console.log(response))
+        .catch((err) => console.log(err));
     }
   }, [formErrors]);
 
