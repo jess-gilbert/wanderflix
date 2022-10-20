@@ -20,7 +20,7 @@ There is also a README from React inside this project for more information
 How to set up:
 - Open the back-end folder in VS Code
 - In your terminal run `npm install` 
-- In your terminal run `node app.js`
+- In your terminal run `node mysql.js`
 
 
 ## Database
@@ -36,7 +36,7 @@ users
 
 
 user_watchlist 
-- user_id INT can not be null / UNIQUE KEY
+- user_id INT can not be null 
 - movie_id varchar(50) can not be null / UNIQUE KEY
 - watchlist_id INT (15) can not be null / PRIMARY KEY / UNIQUE KEY/ AI
 
