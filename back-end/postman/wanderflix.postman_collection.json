@@ -66,6 +66,37 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "watchlist",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"movie_id\":\"testid\",\r\n    \"user_id\":\"17\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:4000/watchlist",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"watchlist"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

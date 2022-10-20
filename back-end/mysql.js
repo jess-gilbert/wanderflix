@@ -1,6 +1,7 @@
 import mysql from "mysql2";
 import express from "express";
 import bodyParser from "body-parser";
+import session from "express-session";
 import cors from "cors";
 
 var con = mysql.createConnection({
@@ -73,9 +74,12 @@ app.post("/signin", function (req, res) {
       "SELECT * FROM users WHERE user_email = ? AND user_password = ?",
       [user_email, user_password],
       function (error, results, fields) {
-        if (error) throw error;
+        if (error) throw error; // Change to res.send error instead
 
         if (results.length > 0) {
+          // req.session.loggedin = true;
+          // req.session.user_email= user_email;
+          // res.redirect('/home');
           res.send("Login successful");
         } else {
           res.send("Incorrect Username and/or Password!");
@@ -86,6 +90,35 @@ app.post("/signin", function (req, res) {
   } else {
     res.statusCode = 400;
     res.send("Please enter Username and Password!");
+    res.end();
+  }
+});
+
+app.post("/watchlist", function (req, res) {
+  console.log("req ->" + req.body);
+  let movie_id = req.body.movie_id;
+  let user_id = req.body.user_id;
+
+  if (movie_id && user_id) {
+    con.query(
+      "INSERT INTO user_watchlist (movie_id, user_id) VALUES (?,?) ",
+      [movie_id, user_id],
+      function (error, results, fields) {
+        if (error) throw error; // Change to res.send error instead
+
+        if (results.insertId) {
+          console.log(results.insertId);
+          res.send("successful");
+        } else {
+          res.statusCode = 400;
+          res.send("Bad request");
+        }
+        res.end();
+      }
+    );
+  } else {
+    res.statusCode = 400;
+    res.send("Bad request");
     res.end();
   }
 });
