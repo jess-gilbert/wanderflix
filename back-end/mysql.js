@@ -1,8 +1,9 @@
 import mysql from "mysql2";
 import express from "express";
 import bodyParser from "body-parser";
-// const cors = require('cors');
 import session from "express-session";
+import cors from "cors";
+
 // const path = require('path');
 
 var con = mysql.createConnection({
@@ -19,6 +20,7 @@ con.connect(function (err) {
 
 const app = express();
 const port = 4000;
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

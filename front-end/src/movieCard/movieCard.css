@@ -1,0 +1,24 @@
+.card-list {
+    margin-top: 4rem;
+    display: inline-flex;
+    flex-wrap: nowrap;
+}
+
+.card {
+    padding: 1rem 1rem;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px rgb(0 0 0 / 15%);
+    margin-bottom: 1rem;
+    background-color: #1C3738;
+}
+
+.card--title {
+    margin-bottom: 0.5rem;
+    font-size: 3.2rem;
+}
+
+.card--image {
+    max-height: 400px;
+    margin: inherit;
+    display: block;
+}
