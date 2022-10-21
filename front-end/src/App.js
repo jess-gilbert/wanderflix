@@ -10,18 +10,19 @@ import { GlobalProvider } from "./context/GlobalState";
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-      <GlobalProvider></GlobalProvider>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/SignIn" element={<SignIn />} />
-        <Route path="/SignUp" element={<SignUp />} />
-        <Route path="/ResultPage/:query" element={<ResultPage />} />
-        <Route path="/Watchlist" element={<Watchlist />} />
-      </Routes>
-    </div>
+    <GlobalProvider>
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/Home" element={<Home />} />
+          <Route path="/SignIn" element={<SignIn />} />
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/ResultPage/:query" element={<ResultPage />} />
+          <Route path="/Watchlist" element={<Watchlist />} />
+        </Routes>
+      </div>
+    </GlobalProvider>
   );
 }
 
