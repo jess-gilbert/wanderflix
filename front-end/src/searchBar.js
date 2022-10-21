@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import MovieCard from "./movieCard/movieCard.js";
 import { useNavigate } from "react-router-dom";
 
 export default function SearchBar() {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
-  const [movies, setMovies] = useState([]);
+  // const [movies, setMovies] = useState([]);
 
   const SearchBar = async (e) => {
     e.preventDefault();

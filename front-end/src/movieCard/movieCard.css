@@ -7,18 +7,19 @@
 .card {
     padding: 1rem 1rem;
     border-radius: 5px;
-    box-shadow: 1px 1px 5px rgb(0 0 0 / 15%);
     margin-bottom: 1rem;
     background-color: #1C3738;
 }
 
 .card--title {
     margin-bottom: 0.5rem;
-    font-size: 3.2rem;
+    font-size: 14pt;
+    font-weight: normal ;
 }
 
 .card--image {
     max-height: 400px;
+    max-width: 370px;
     margin: inherit;
     display: block;
 }

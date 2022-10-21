@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import MovieCard from "../movieCard/movieCard";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import "./ResultPage.css";
 
 export default function ResultPage() {
   const { query } = useParams();
@@ -27,12 +28,17 @@ export default function ResultPage() {
   }, [query]);
 
   return (
-    <div className="card-list">
-      {movies
-        .filter((movie) => movie.poster_path)
-        .map((movie) => (
-          <MovieCard movie={movie} key={movie.id} />
-        ))}
-    </div>
+    <>
+      <h1 className="results-title">Results : {query}</h1>
+      <div className="center-max-size">
+          <div className="card-list">
+            {movies
+            .filter((movie) => movie.poster_path)
+            .map((movie) => (
+              <MovieCard movie={movie} key={movie.id} />
+            ))}
+        </div>
+      </div>
+    </>
   );
 }
