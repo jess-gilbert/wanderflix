@@ -1,13 +1,19 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import "./SignUp.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { GlobalContext } from "../context/GlobalState";
+import { userSignedIn } from "../context/AppActions";
 
 function SignIn() {
   const initialValues = { email: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
+  const [responseError, setResponseError] = useState(null);
   const [isSubmit, setIsSubmit] = useState(false);
+  const navigate = useNavigate();
+  const [contextState, dispatch] = useContext(GlobalContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -31,8 +37,18 @@ function SignIn() {
           user_password: formValues.password,
         },
       })
-        .then((response) => console.log(response))
-        .catch((err) => console.log(err));
+        .then((response) => {
+          if (response.status === 200) {
+            dispatch(userSignedIn(true));
+            navigate(`/Home`);
+          }
+        })
+        .catch((err) => {
+          if (err.response.status === 401) {
+            console.log("Incorrect details provided");
+            setResponseError("Incorrect username or password");
+          }
+        });
     }
   }, [formErrors]);
 
@@ -75,6 +91,7 @@ function SignIn() {
         />
         <div> {formErrors.password} </div>
         <input type="submit" value="Sign In" />
+        <div> {responseError} </div>
         <Link to="/SignUp">
           <button>Sign Up</button>
         </Link>
