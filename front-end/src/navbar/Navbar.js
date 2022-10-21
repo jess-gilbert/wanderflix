@@ -7,6 +7,7 @@ export default function Navbar() {
   const [contextState, dispatch] = useContext(GlobalContext);
   const userSignedIn = contextState.userSignedIn;
 
+  //still need to dispatch user signed in to false when we press sign out
   return (
     <nav className="nav">
       <Link to="/" className="site-title">
