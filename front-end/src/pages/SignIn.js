@@ -4,7 +4,7 @@ import "./SignUp.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
-import { userSignedIn } from "../context/AppActions";
+// import { userSignedIn } from "../context/AppActions";
 
 function SignIn() {
   const initialValues = { email: "", password: "" };
@@ -37,12 +37,12 @@ function SignIn() {
           user_password: formValues.password,
         },
       })
-        .then((response) => {
-          if (response.status === 200) {
-            dispatch(userSignedIn(true));
-            navigate(`/Home`);
-          }
-        })
+        // .then((response) => {
+        //   if (response.status === 200) {
+        //     dispatch(userSignedIn(true));
+        //     navigate(`/Home`);
+        //   }
+        // })
         .catch((err) => {
           if (err.response.status === 401) {
             console.log("Incorrect details provided");

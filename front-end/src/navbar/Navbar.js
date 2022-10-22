@@ -15,7 +15,7 @@ export default function Navbar() {
       </Link>
       <ul>
         <CustomLink to="/Watchlist">
-          <i class="fa-sharp fa-solid fa-heart"></i>WATCHLIST
+          <i className="fa-sharp fa-solid fa-heart"></i>WATCHLIST
         </CustomLink>
         {!userSignedIn && (
           <>

@@ -10,9 +10,9 @@ import { GlobalProvider } from "./context/GlobalState";
 
 function App() {
   return (
-    <GlobalProvider>
       <div className="App">
         <Navbar />
+        <GlobalProvider>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Home" element={<Home />} />
@@ -21,8 +21,8 @@ function App() {
           <Route path="/ResultPage/:query" element={<ResultPage />} />
           <Route path="/Watchlist" element={<Watchlist />} />
         </Routes>
+        </GlobalProvider>
       </div>
-    </GlobalProvider>
   );
 }
 

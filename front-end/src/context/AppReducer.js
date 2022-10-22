@@ -1,16 +1,12 @@
 export default (state, action) => {
+
   switch (action.type) {
-    case "Add_Movie_To_Watchlist":
+    case "ADD_MOVIE_TO_WATCHLIST":
       return {
         ...state,
         watchlist: [action.payload, ...state.watchlist],
       };
-    case "user_signed_in":
-      return {
-        ...state,
-        userSignedIn: action.payload,
-      };
-    default:
+      default:
       return state;
   }
 };
