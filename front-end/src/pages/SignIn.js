@@ -13,7 +13,7 @@ function SignIn() {
   const [responseError, setResponseError] = useState(null);
   const [isSubmit, setIsSubmit] = useState(false);
   const navigate = useNavigate();
-  const [contextState, dispatch] = useContext(GlobalContext);
+  const { setUserSignedIn } = useContext(GlobalContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,12 +37,12 @@ function SignIn() {
           user_password: formValues.password,
         },
       })
-        // .then((response) => {
-        //   if (response.status === 200) {
-        //     dispatch(userSignedIn(true));
-        //     navigate(`/Home`);
-        //   }
-        // })
+        .then((response) => {
+          if (response.status === 200) {
+            setUserSignedIn(true);
+            navigate(`/Home`);
+          }
+        })
         .catch((err) => {
           if (err.response.status === 401) {
             console.log("Incorrect details provided");

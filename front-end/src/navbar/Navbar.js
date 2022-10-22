@@ -4,8 +4,7 @@ import { GlobalContext } from "../context/GlobalState";
 import WanderflixLogo from "../images/WLogo.png";
 
 export default function Navbar() {
-  const [contextState, dispatch] = useContext(GlobalContext);
-  const userSignedIn = contextState.userSignedIn;
+  const { userSignedIn } = useContext(GlobalContext);
 
   //still need to dispatch user signed in to false when we press sign out
   return (

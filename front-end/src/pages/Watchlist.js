@@ -1,16 +1,20 @@
 import React, { useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
+import MovieCard from "../movieCard/movieCard";
+import "./ResultPage.css";
 
 export default function Watchlist() {
-    
-    // export const Watchlist = () => {
-    const { watchlist } = useContext(GlobalContext);
+  const { watchlist } = useContext(GlobalContext);
 
-    return (
-    <div>
-        {watchlist.map((movie) => (
-            <h1> { movie.title } </h1>
-        ))}
+  return (
+    <div className="center-max-size">
+      <div className="card-list">
+        {watchlist
+          .filter((movie) => movie.poster_path)
+          .map((movie) => (
+            <MovieCard movie={movie} key={movie.id} />
+          ))}
+      </div>
     </div>
-    );
-};
+  );
+}
