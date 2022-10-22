@@ -3,8 +3,10 @@ import AppReducer from "./AppReducer";
 
 // initial state
 const initialState = {
-  watchlist: [],
   userSignedIn: false,
+  watchlist: localStorage.getItem("watchlist")
+    ? JSON.parse(localStorage.getItem("watchlist"))
+    : [],
 };
 
 // create context
@@ -14,8 +16,26 @@ export const GlobalContext = createContext(initialState);
 export const GlobalProvider = (props) => {
   const [state, dispatch] = useReducer(AppReducer, initialState);
 
+  useEffect(() => {
+    localStorage.setItem("watchlist", JSON.stringify(state.watchlist));
+  }, [state]);
+
+  const actions = {
+    addMovieToWatchlist: (payload) => {
+      dispatch({ type: "ADD_MOVIE_TO_WATCHLIST", payload: payload });
+    },
+    setUserSignedIn: (payload) => {
+      dispatch({ type: "SET_USER_SIGNED_IN", payload: payload });
+    },
+  };
+
   return (
-    <GlobalContext.Provider value={[state, dispatch]}>
+    <GlobalContext.Provider
+      value={{
+        ...state,
+        ...actions,
+      }}
+    >
       {props.children}
     </GlobalContext.Provider>
   );

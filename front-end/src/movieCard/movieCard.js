@@ -1,14 +1,13 @@
 import React, { useContext } from "react";
-import { addMovieToWatchlist } from "../context/AppActions";
 import { GlobalContext } from "../context/GlobalState";
 import "./movieCard.css";
 
 export default function MovieCard({ movie }) {
-  const [contextState, dispatch] = useContext(GlobalContext);
+  const { addMovieToWatchlist, watchlist } = useContext(GlobalContext);
 
-  let storedMovie = contextState.watchlist.find((o) => o.di === movie.id);
+  let savedMovie = watchlist.find((o) => o.id === movie.id);
 
-  const watchlistDisabled = storedMovie ? true : false;
+  const watchlistDisabled = savedMovie ? true : false;
 
   return (
     <div className="card">
@@ -16,7 +15,7 @@ export default function MovieCard({ movie }) {
         <button
           className="btn"
           disabled={watchlistDisabled}
-          onClick={() => dispatch(addMovieToWatchlist(movie))}
+          onClick={() => addMovieToWatchlist(movie)}
         >
           <i class="fa-sharp fa-solid fa-heart"></i> SAVE TO WATCHLIST
         </button>
@@ -26,6 +25,7 @@ export default function MovieCard({ movie }) {
           src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
           alt={movie.title + "poster"}
         />
+
         <div className="card--content">
           <h3 className="card--title">{movie.title}</h3>
           {/* <p><small>RELEASE DATE: {movie.release_date}</small></p> */}

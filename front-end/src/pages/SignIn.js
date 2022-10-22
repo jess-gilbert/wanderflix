@@ -4,7 +4,7 @@ import "./SignUp.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
-import { userSignedIn } from "../context/AppActions";
+// import { userSignedIn } from "../context/AppActions";
 
 function SignIn() {
   const initialValues = { email: "", password: "" };
@@ -13,7 +13,7 @@ function SignIn() {
   const [responseError, setResponseError] = useState(null);
   const [isSubmit, setIsSubmit] = useState(false);
   const navigate = useNavigate();
-  const [contextState, dispatch] = useContext(GlobalContext);
+  const { setUserSignedIn } = useContext(GlobalContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,7 +39,7 @@ function SignIn() {
       })
         .then((response) => {
           if (response.status === 200) {
-            dispatch(userSignedIn(true));
+            setUserSignedIn(true);
             navigate(`/Home`);
           }
         })

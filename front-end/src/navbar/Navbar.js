@@ -4,8 +4,7 @@ import { GlobalContext } from "../context/GlobalState";
 import WanderflixLogo from "../images/WLogo.png";
 
 export default function Navbar() {
-  const [contextState, dispatch] = useContext(GlobalContext);
-  const userSignedIn = contextState.userSignedIn;
+  const { userSignedIn } = useContext(GlobalContext);
 
   //still need to dispatch user signed in to false when we press sign out
   return (
@@ -15,7 +14,7 @@ export default function Navbar() {
       </Link>
       <ul>
         <CustomLink to="/Watchlist">
-          <i class="fa-sharp fa-solid fa-heart"></i>WATCHLIST
+          <i className="fa-sharp fa-solid fa-heart"></i>WATCHLIST
         </CustomLink>
         {!userSignedIn && (
           <>
