@@ -5,21 +5,37 @@
 }
 
 .card {
+    display: flex;
+    justify-content: center;
     padding: 1rem 1rem;
     border-radius: 5px;
     margin-bottom: 1rem;
-    background-color: #1C3738;
+    height: 450px;
+    width: 250px;
 }
 
 .card--title {
     margin-bottom: 0.5rem;
     font-size: 14pt;
     font-weight: normal ;
+    height: 65px;
 }
 
 .card--image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
     max-height: 400px;
     max-width: 370px;
-    margin: inherit;
-    display: block;
+}
+
+.remove-icon {
+    color: red;
+}
+
+.rating-bar{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
 }
