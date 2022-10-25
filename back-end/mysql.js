@@ -77,9 +77,6 @@ app.post("/signin", function (req, res) {
         if (error) throw error; // Change to res.send error instead
 
         if (results.length > 0) {
-          // req.session.loggedin = true;
-          // req.session.user_email= user_email;
-          // res.redirect('/home');
           res.send("Login successful");
         } else {
           res.send("Incorrect Username and/or Password!");
@@ -122,3 +119,74 @@ app.post("/watchlist", function (req, res) {
     res.end();
   }
 });
+
+
+
+
+app.delete("/watchlist", function (req, res) {
+  console.log("req ->" + req.body);
+  let movie_id = req.body.movie_id;
+  let user_id = req.body.user_id;
+
+  if (movie_id && user_id) {
+    con.query(
+      "DELETE FROM user_watchlist WHERE movie_id = ? AND user_id = ? ",
+      [movie_id, user_id],
+      function (error, results, fields) {
+        if (error) {
+          console.log("Error while deleting the object")
+          console.log(error)
+          res.statusCode = 500
+          res.send("Error");
+        }
+        else if(results.affectedRows =! '0') {
+          console.log("Item deleted");
+          res.statusCode = 202
+          res.send("Deleted");
+        }
+        else {
+          console.log("nothing to delete")
+          res.statusCode = 200
+          res.send("");
+        }
+      }
+    );
+  } else {
+    res.statusCode = 400;
+    res.send("Bad request");
+    res.end();
+  }
+});
+
+
+// app.post("/review", function (req, res) {
+//   console.log("req ->" + req.body);
+//   let star_rating = req.body.star_rating;
+//   let user_id = req.body.user_id;
+//   let movie_id = req.body.movie_id;
+
+
+
+//   if (star_rating && user_id && movie_id) {
+//     con.query(
+//       "INSERT INTO user_review (star_rating, user_id, movie_id) VALUES (?,?,?) ",
+//       [star_rating, user_id, movie_id],
+//       function (error, results, fields)   {
+//         if (error) throw error;   
+
+//         if (results.insertId) {
+//           console.log(results.insertId);
+//           res.send("successful");
+//         } else {
+//           res.statusCode = 400;
+//           res.send("Bad request");
+//         }
+//         res.end();
+//       }
+//     );
+//   } else {
+//     res.statusCode = 400;
+//     res.send("Bad request");
+//     res.end();
+//   }
+// });
