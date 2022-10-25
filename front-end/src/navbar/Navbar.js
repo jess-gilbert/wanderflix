@@ -13,6 +13,7 @@ export default function Navbar() {
         <img src={WanderflixLogo} alt="Wanderflix Logo" />
       </Link>
       <ul>
+        <CustomLink to="/Discover">DISCOVER</CustomLink>
         <CustomLink to="/Watchlist">
           <i className="fa-sharp fa-solid fa-heart"></i>WATCHLIST
         </CustomLink>

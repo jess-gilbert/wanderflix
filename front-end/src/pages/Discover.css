@@ -1,0 +1,103 @@
+.discover-title {
+    padding-top: 40px;
+    padding-left:80px;
+    margin: 0 auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: normal;
+}
+
+.sub-title {
+    padding-left: 80px;
+    font-size: 14pt;
+    font-family: 'Gill Sans', sans-serif;
+    font-weight: normal;
+}
+.grid-container {
+    position: relative;
+    display: grid; 
+    margin: 50px;
+    padding-left: 650px;
+    grid-auto-columns: 1fr; 
+    grid-auto-rows: 1fr; 
+    grid-template-columns: 1fr 1fr; 
+    grid-template-rows: 1fr 1fr; 
+    gap: 75px 75px; 
+    grid-template-areas: 
+      ". ."
+      ". ."; 
+    justify-content: center; 
+    justify-items: center; 
+    align-items: center; 
+    width: 680px; 
+  }
+
+
+.box-title-1 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:24px;
+    font-weight: normal;
+    position: absolute;
+    top: 100px;
+    left: 280px;
+    color: black;
+    background-color: hsla(100, 100%, 100%, 0.5);
+    padding: 40px;
+}
+
+.box-title-2 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:24px;
+    font-weight: normal;
+    position: absolute;
+    top: 100px;
+    left: 900px;
+    color: black;
+    background-color: hsla(100, 100%, 100%, 0.5);
+    padding: 43px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.box-title-3 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:24px;
+    font-weight: normal;
+    position: absolute;
+    top: 525px;
+    left: 280px;
+    color: black;
+    background-color: hsla(100, 100%, 100%, 0.5);
+    padding: 40px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.box-title-4 {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size:24px;
+    font-weight: normal;
+    position: absolute;
+    top: 530px;
+    left: 850px;
+    color: black;
+    background-color: hsla(100, 100%, 100%, 0.5);
+    padding: 35px;
+    padding-left: 60px;
+    padding-right: 60px;
+}
+
+.london-skyline {
+    min-height: 350px;
+}
+
+.rome-skyline {
+    min-height: 350px;
+}
+
+.paris-skyline {
+    min-height: 350px;
+}
+
+.singapore-skyline {
+    min-height: 350px;
+}
