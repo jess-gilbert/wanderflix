@@ -79,6 +79,7 @@ app.post("/signin", function (req, res) {
         if (results.length > 0) {
           res.send("Login successful");
         } else {
+          res.statusCode = 401;
           res.send("Incorrect Username and/or Password!");
         }
         res.end();

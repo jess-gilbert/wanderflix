@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SignUp.css";
 
 function SignUp() {
@@ -12,7 +13,9 @@ function SignUp() {
   };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
+  const [responseError, setResponseError] = useState(null);
   const [isSubmit, setIsSubmit] = useState(false);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,8 +40,17 @@ function SignUp() {
           user_password: formValues.password,
         },
       })
-        .then((response) => console.log(response))
-        .catch((err) => console.log(err));
+        .then((response) => {
+          if (response.status === 200) {
+            navigate(`/SignIn`);
+          }
+        })
+        .catch((err) => {
+          if (err.response.status === 403) {
+            console.log("Account already exists");
+            setResponseError("This account already exists, please sign in");
+          }
+        });
     }
   }, [formErrors]);
 
@@ -118,6 +130,7 @@ function SignUp() {
         />
         <div> {formErrors.repeatPassword} </div>
         <input type="submit" value="Sign Up" />
+        <div> {responseError} </div>
       </form>
     </div>
   );
