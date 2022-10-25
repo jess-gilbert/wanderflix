@@ -1,7 +1,6 @@
 import mysql from "mysql2";
 import express from "express";
 import bodyParser from "body-parser";
-import session from "express-session";
 import cors from "cors";
 
 var con = mysql.createConnection({
@@ -74,7 +73,12 @@ app.post("/signin", function (req, res) {
       "SELECT * FROM users WHERE user_email = ? AND user_password = ?",
       [user_email, user_password],
       function (error, results, fields) {
-        if (error) throw error; // Change to res.send error instead
+          if (error) {
+            console.log("Error while signin");
+            console.log(error);
+            res.statusCode = 500;
+            res.send("Error");
+        }
 
         if (results.length > 0) {
           res.send("Login successful");
@@ -102,27 +106,33 @@ app.post("/watchlist", function (req, res) {
       "INSERT INTO user_watchlist (movie_id, user_id) VALUES (?,?) ",
       [movie_id, user_id],
       function (error, results, fields) {
-        if (error) throw error; // Change to res.send error instead
-
-        if (results.insertId) {
-          console.log(results.insertId);
+        if (error) {
+          console.log("Error while adding the object");
+          console.log(error);
+          res.statusCode = 500;
+          if ((error.errno = 1062)) {
+            res.send("Duplicate entry");
+          } else {
+            res.send("Error");
+          }
+        } else if (results.insertId != 0) {
+          console.log("Movie added");
           res.send("successful");
         } else {
-          res.statusCode = 400;
-          res.send("Bad request");
+          res.statusCode = 204;
+          console.log("No Content");
+          res.send("");
         }
         res.end();
       }
     );
   } else {
+    console.log("Bad request");
     res.statusCode = 400;
     res.send("Bad request");
     res.end();
   }
 });
-
-
-
 
 app.delete("/watchlist", function (req, res) {
   console.log("req ->" + req.body);
@@ -135,20 +145,19 @@ app.delete("/watchlist", function (req, res) {
       [movie_id, user_id],
       function (error, results, fields) {
         if (error) {
-          console.log("Error while deleting the object")
-          console.log(error)
-          res.statusCode = 500
+          console.log("Error while deleting the object");
+          console.log(error);
+          res.statusCode = 500;
           res.send("Error");
         }
-        else if(results.affectedRows =! '0') {
+        if (results.affectedRows != "0") {
           console.log("Item deleted");
-          res.statusCode = 202
+          res.statusCode = 202;
           res.send("Deleted");
-        }
-        else {
-          console.log("nothing to delete")
-          res.statusCode = 200
-          res.send("");
+        } else {
+          console.log("nothing to delete");
+          res.statusCode = 200;
+          res.send("nothing to delete");
         }
       }
     );
@@ -158,36 +167,3 @@ app.delete("/watchlist", function (req, res) {
     res.end();
   }
 });
-
-
-// app.post("/review", function (req, res) {
-//   console.log("req ->" + req.body);
-//   let star_rating = req.body.star_rating;
-//   let user_id = req.body.user_id;
-//   let movie_id = req.body.movie_id;
-
-
-
-//   if (star_rating && user_id && movie_id) {
-//     con.query(
-//       "INSERT INTO user_review (star_rating, user_id, movie_id) VALUES (?,?,?) ",
-//       [star_rating, user_id, movie_id],
-//       function (error, results, fields)   {
-//         if (error) throw error;   
-
-//         if (results.insertId) {
-//           console.log(results.insertId);
-//           res.send("successful");
-//         } else {
-//           res.statusCode = 400;
-//           res.send("Bad request");
-//         }
-//         res.end();
-//       }
-//     );
-//   } else {
-//     res.statusCode = 400;
-//     res.send("Bad request");
-//     res.end();
-//   }
-// });
