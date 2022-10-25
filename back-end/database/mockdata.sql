@@ -15,9 +15,3 @@ VALUES ( 'ozge@gmail.com' , '1234', 'Ozge', 'Ozersahin'),
         ('20','tt0944947');
         
         
- INSERT INTO wanderflix.user_review ( user_id , movie_id, star_rating, user_comment)
- VALUES ('16','tt0944947','4.0','I like the scenario'),
-		('17','tt0944947','4.1','I love this actress'),
-        ('18','tt0944947','4.5','Way better than I expected'),
-        ('19','tt0944947','4.2','Nice work'),
-        ('20','tt0944947','4.3.','Love the movie');

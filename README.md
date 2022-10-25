@@ -41,12 +41,6 @@ user_watchlist
 - movie_id varchar(50) can not be null / UNIQUE KEY
 - watchlist_id INT (15) can not be null / PRIMARY KEY / UNIQUE KEY/ AI
 
-user_review
-- user_id INT can not be null  
-- movie_id varchar (15) can not be null
-- review_id INT can not be null / PRIMARY KEY/ UNIQUE KEY / AI
-- star_rating varchar(5)
-- user_comment varchar(200)
 
 ## POSTMAN
 -Postman folder created. Import code on your Postman workspace.
