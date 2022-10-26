@@ -2,6 +2,7 @@ import mysql from "mysql2";
 import express from "express";
 import bodyParser from "body-parser";
 import cors from "cors";
+import queryString from "query-string";
 
 var con = mysql.createConnection({
   host: "localhost",
@@ -162,6 +163,38 @@ app.delete("/watchlist", function (req, res) {
       }
     );
   } else {
+    res.statusCode = 400;
+    res.send("Bad request");
+    res.end();
+  }
+});
+
+
+app.get("/watchlist", function (req, res) {
+
+  const user_id = req.query.user_id ; 
+ 
+  if (user_id) {
+    con.query(
+      "SELECT * FROM user_watchlist WHERE user_id = ?",
+      [user_id],
+      function (error, results, fields) {
+        if (error) {
+          console.log("Error while getting the object");
+          console.log(error);
+          res.statusCode = 500;
+          res.send("Error while getting the object")
+        } else if (results.length > 0) {
+          console.log("sucsessful");
+          console.log(results);
+         // res.body = results;
+          res.statusCode = 200;
+          res.send(results);
+        }
+      }
+    );
+  } else {
+    console.log("Bad request");
     res.statusCode = 400;
     res.send("Bad request");
     res.end();
