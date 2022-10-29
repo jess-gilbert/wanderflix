@@ -3,19 +3,24 @@ export default (state, action) => {
     case "ADD_MOVIE_TO_WATCHLIST":
       return {
         ...state,
-        watchlist: [action.payload, ...state.watchlist],
+        watchlist: [action.movie, ...state.watchlist],
       };
     case "REMOVE_MOVIE_FROM_WATCHLIST":
       return {
         ...state,
         watchlist: state.watchlist.filter(
-          (movie) => movie.id !== action.payload.id
+          (movie) => movie.id !== action.movie.id
         ),
       };
     case "SET_USER_SIGNED_IN":
       return {
         ...state,
-        userSignedIn: action.payload,
+        userSignedIn: action.userSignedIn,
+      };
+    case "SET_USER_ID":
+      return {
+        ...state,
+        userId: action.userId,
       };
     default:
       return state;
