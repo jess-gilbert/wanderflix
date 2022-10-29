@@ -74,15 +74,15 @@ app.post("/signin", function (req, res) {
       "SELECT * FROM users WHERE user_email = ? AND user_password = ?",
       [user_email, user_password],
       function (error, results, fields) {
-          if (error) {
-            console.log("Error while signin");
-            console.log(error);
-            res.statusCode = 500;
-            res.send("Error");
+        if (error) {
+          console.log("Error while signin");
+          console.log(error);
+          res.statusCode = 500;
+          res.send("Error");
         }
 
         if (results.length > 0) {
-          res.send("Login successful");
+          res.send({ userId: results[0].user_id });
         } else {
           res.statusCode = 401;
           res.send("Incorrect Username and/or Password!");
@@ -118,7 +118,7 @@ app.post("/watchlist", function (req, res) {
           }
         } else if (results.insertId != 0) {
           console.log("Movie added");
-          res.send("successful");
+          res.send({ movieId: movie_id });
         } else {
           res.statusCode = 204;
           console.log("No Content");
@@ -169,25 +169,23 @@ app.delete("/watchlist", function (req, res) {
   }
 });
 
+app.get("/watchlist/:user_id", function (req, res) {
+  const user_id = parseInt(req.params.user_id);
 
-app.get("/watchlist", function (req, res) {
-
-  const user_id = req.query.user_id ; 
- 
   if (user_id) {
     con.query(
-      "SELECT * FROM user_watchlist WHERE user_id = ?",
+      "SELECT movie_id FROM user_watchlist WHERE user_id = ?",
       [user_id],
       function (error, results, fields) {
         if (error) {
           console.log("Error while getting the object");
           console.log(error);
           res.statusCode = 500;
-          res.send("Error while getting the object")
+          res.send("Error while getting the object");
         } else if (results.length > 0) {
           console.log("sucsessful");
           console.log(results);
-         // res.body = results;
+          // res.body = results;
           res.statusCode = 200;
           res.send(results);
         }

@@ -1,34 +1,46 @@
 import { Axios } from "axios";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import MovieInfoControl from "../movieInfo/movieInfoControl";
 import "./movieCard.css";
+import axios from "axios";
 
-export default function MovieCard({ movie,type,}) {
-  const { addMovieToWatchlist, removeMovieFromWatchlist, watchlist } =
+export default function MovieCard({ movie }) {
+  const { addMovieToWatchlist, removeMovieFromWatchlist, watchlist, userId } =
     useContext(GlobalContext);
-
-    // Axios. post ("http://127.0.0.1:4000/watchlist", {
-    //   movie_id : id,
-    //   user_id : user_id,
-    // }).then (() => { 
-    //   alert("Successful insert");
-    // });
-    // };
 
   let savedMovie = watchlist.find((o) => o.id === movie.id);
 
   function onClickHeart() {
-    savedMovie ? removeMovieFromWatchlist(movie) : addMovieToWatchlist(movie);
+    let url = "";
+    if (savedMovie) {
+      axios({
+        method: "delete",
+        url: "http://127.0.0.1:4000/watchlist",
+        data: {
+          user_id: userId,
+          movie_id: movie.id,
+        },
+      })
+        .then((response) => {
+          removeMovieFromWatchlist(movie);
+        })
+        .catch((err) => console.log(err));
+    } else {
+      axios({
+        method: "post",
+        url: "http://127.0.0.1:4000/watchlist",
+        data: {
+          user_id: userId,
+          movie_id: movie.id,
+        },
+      })
+        .then((response) => {
+          addMovieToWatchlist(movie);
+        })
+        .catch((err) => console.log(err));
+    }
   }
-
-  const MovieCard = (props) => {
-    const MovieInfoControl = props.MovieInfoControl;
-  }
- 
-
-
-
   return (
     <div className="card">
       <div className="image-container controls">
@@ -37,7 +49,7 @@ export default function MovieCard({ movie,type,}) {
           src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
           alt={movie.title + "poster"}
         />
-        <div className="overlay d-flex align-items-center justify-conter" >
+        <div className="overlay d-flex align-items-center justify-conter">
           <MovieInfoControl />
         </div>
         {/* <MovieInfoControl type = {type} movie={movie}/> */}

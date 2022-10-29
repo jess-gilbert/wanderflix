@@ -4,9 +4,8 @@ import AppReducer from "./AppReducer";
 // initial state
 const initialState = {
   userSignedIn: false,
-  watchlist: localStorage.getItem("watchlist")
-    ? JSON.parse(localStorage.getItem("watchlist"))
-    : [],
+  watchlist: [],
+  userId: null,
 };
 
 // create context
@@ -21,14 +20,17 @@ export const GlobalProvider = (props) => {
   }, [state]);
 
   const actions = {
-    addMovieToWatchlist: (payload) => {
-      dispatch({ type: "ADD_MOVIE_TO_WATCHLIST", payload: payload });
+    addMovieToWatchlist: (movie) => {
+      dispatch({ type: "ADD_MOVIE_TO_WATCHLIST", movie: movie });
     },
-    removeMovieFromWatchlist: (payload) => {
-      dispatch({ type: "REMOVE_MOVIE_FROM_WATCHLIST", payload: payload });
+    removeMovieFromWatchlist: (movie) => {
+      dispatch({ type: "REMOVE_MOVIE_FROM_WATCHLIST", movie: movie });
     },
-    setUserSignedIn: (payload) => {
-      dispatch({ type: "SET_USER_SIGNED_IN", payload: payload });
+    setUserSignedIn: (userSignedIn) => {
+      dispatch({ type: "SET_USER_SIGNED_IN", userSignedIn: userSignedIn });
+    },
+    setUserId: (userId) => {
+      dispatch({ type: "SET_USER_ID", userId: userId });
     },
   };
 
