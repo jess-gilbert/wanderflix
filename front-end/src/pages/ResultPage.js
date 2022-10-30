@@ -38,14 +38,14 @@ export default function ResultPage() {
     <>
       <h1 className="results-title">Results : {query}</h1>
       <div className="center-max-size">
-          <div className="card-list">
-            {movies
-            .filter((movie) => movie.poster_path)
-            .map((movie) => (
-              <MovieCard movie={movie} key={movie.id} 
-              MovieInfoControl = {MovieInfoControl}/> 
-            ))}
-        </div>
+      <div className="card-list">
+      {movies
+      .filter((movie) => movie.poster_path)
+      .map((movie) => (
+      <MovieCard movie={movie} key={movie.id} 
+      MovieInfoControl = {MovieInfoControl}/>
+      ))}
+      </div>
       </div>
     </>
   );
