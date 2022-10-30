@@ -1,7 +1,12 @@
 .card-list {
-    margin-top: 4rem;
-    display: inline-flex;
-    flex-wrap: nowrap;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    display: grid;
+    grid-template-columns: 0.75fr 0.75fr 0.75fr 0.75fr;
+    grid-gap: 10px;
+    gap: 2;
+    justify-items: center;
+    font-family: Gill Sans, sans-serif;
 }
 
 .card {
@@ -57,6 +62,17 @@
     flex-wrap: nowrap;
 }
 
+.btn {
+    box-sizing: content-box;
+    margin: 10px 2px 10px ;
+    font-size: 10pt;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+   
+}
+
 .modal-title.h4 {
     text-align: center;
     text-decoration: underline;
@@ -101,4 +117,18 @@ button.btn.btn-secondary {
     height: 20px;
     color: #f4fff8;
     background: darkslategray;
+}
+
+.image-container {
+	position: relative;
+	transition: transform 0.2s;
+}
+
+.image-container:hover {
+	cursor: pointer;
+	transform: scale(1.1);
+}
+
+.image-container:hover  {
+	opacity: 1;
 }

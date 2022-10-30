@@ -1,4 +1,3 @@
-import { Axios } from "axios";
 import React, { useContext, useState } from "react";
 import { GlobalContext } from "../context/GlobalState";
 import "./movieCard.css";

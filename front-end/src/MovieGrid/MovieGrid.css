@@ -1,0 +1,25 @@
+
+.card-list {
+    padding-top: 20px;
+    padding-bottom: 40px;
+    display: grid;
+    grid-template-columns: 0.75fr 0.75fr 0.75fr 0.75fr;
+    grid-gap: 10px;
+    gap: 2;
+    justify-items: center;
+
+}
+
+.results-title {
+    font-family: Gill Sans, sans-serif;
+    font-weight: normal;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    color: white; 
+}
+
+.center-max-size {
+    max-width: 1020px;
+    margin: 0 auto;
+    margin-top: -40px;
+}

@@ -23,7 +23,10 @@ function App() {
           <Route path="/ResultPage/:query" element={<ResultPage />} />
           <Route path="/Watchlist" element={<Watchlist />} />
           <Route path="/Discover" element={<Discover />} />
-          <Route path="/DiscoverResults/:city_id" element={<DiscoverResults />} />
+          <Route
+            path="/DiscoverResults/:city_id/:city"
+            element={<DiscoverResults />}
+          />
         </Routes>
       </div>
     </GlobalProvider>
