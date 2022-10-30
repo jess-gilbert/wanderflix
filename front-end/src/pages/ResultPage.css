@@ -53,28 +53,3 @@ body {
     font-size: 16pt;
 }
 
-.image-container {
-	position: relative;
-	transition: transform 0.2s;
-}
-
-.image-container:hover {
-	cursor: pointer;
-	transform: scale(1.1);
-}
-
-.image-container:hover .overlay {
-	opacity: 1;
-}
-
-.overlay {
-	position: top;
-	background: rgb(14 51 47 / 0%);
-	width: 100%;
-	transition: 0.5s ease;
-	opacity: 0;
-	bottom: 0;
-	font-size: 15px;
-	padding: 15px;
-	text-align: center;
-}

@@ -12,6 +12,7 @@ How to set up:
 - In your terminal run 'npm i react-router-dom'
 - In your terminal run 'npm i react-icons'
 - In your terminal run 'npm i styled-components'
+- In your terminal run 'npm install react-bootstrap bootstrap'
 
 There is also a README from React inside this project for more information
 
