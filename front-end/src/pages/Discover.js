@@ -64,7 +64,9 @@ export default function Discover() {
               className={city.class}
               src={city.src}
               alt={city.alt}
-              onClick={() => navigate(`/DiscoverResults/${city.city_id}`)}
+              onClick={() =>
+                navigate(`/DiscoverResults/${city.city_id}/${city.city}`)
+              }
             />
           </div>
         ))}
