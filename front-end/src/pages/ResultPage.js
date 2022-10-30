@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-import MovieCard  from "../movieCard/movieCard";
+import MovieCard from "../movieCard/movieCard";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./ResultPage.css";
-import MovieInfoControl from "../movieInfo/movieInfoControl";
 
 export default function ResultPage() {
   const { query } = useParams();
@@ -42,8 +41,7 @@ export default function ResultPage() {
       {movies
       .filter((movie) => movie.poster_path)
       .map((movie) => (
-      <MovieCard movie={movie} key={movie.id} 
-      MovieInfoControl = {MovieInfoControl}/>
+              <MovieCard movie={movie} key={movie.id} />
       ))}
       </div>
       </div>

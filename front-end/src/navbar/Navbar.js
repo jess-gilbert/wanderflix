@@ -14,9 +14,11 @@ export default function Navbar() {
       </Link>
       <ul>
         <CustomLink to="/Discover">DISCOVER</CustomLink>
-        <CustomLink to="/Watchlist">
-          <i className="fa-sharp fa-solid fa-heart"></i>WATCHLIST
-        </CustomLink>
+        {userSignedIn && (
+          <CustomLink to="/Watchlist">
+            <i className="fa-sharp fa-solid fa-heart"></i>WATCHLIST
+          </CustomLink>
+        )}
         {!userSignedIn && (
           <>
             <CustomLink to="/SignIn">SIGN IN</CustomLink>
