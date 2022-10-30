@@ -1,28 +1,56 @@
-import RomeSkyline from "../images/RomeSkyline.png"
+import React, { useState, useEffect } from "react";
+import MovieCard  from "../movieCard/movieCard";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 import "./DiscoverResults.css";
+import MovieInfoControl from "../movieInfo/movieInfoControl";
+import RomeSkyline from "../images/RomeSkyline.png";
+import ParisSkyline from "../images/ParisSkyline.png";
+import LondonSkyline from "../images/LondonSkyline.png";
+import SingaporeSkyline from "../images/SingaporeSkyline.png";
 
-export default function HeroContainer() {
+export default function DiscoverResults() {
 
-return (
-  <div className = "row">
-    <div className = "left">
-      <img className = "london-skyline" src={LondonSkyline} alt="London Sky Line" />
-    </div>
+  const { city_id } = useParams();
+  const [movies, setMovies] = useState([]);
+  const [results,setResults] = useState([]);
 
-    <div className = "right">
-      <div className = "content">
-        <p> Rome is a destination well served by cinema, from its photogenic hilltop 
-        towns and alfresco café culture to its cultural and romantic sensibilities. 
-        The good news is that there is no shortage of movies set in Rome.</p>
+  const CityResults= () => {
+    const url = `https://api.themoviedb.org/3/keyword/${city_id}/movies?api_key=d1a96bd28a613550710fa181a44fe9f9&language=en-US&include_adult=false`;
+    console.log(url);
 
-        <p>Not all of these movies are masterpieces (although there are a few that 
-        are). However, in some way, each of them effectively showcases the Italian 
-        landscape, its culture or society.</p>
+  if({city_id}.errors){
+      setResults({city_id},results);
+    } else {setResults([]);}
 
-        <p>Discover the top movies featuring Rome below...</p>
+    axios({
+      method: "get",
+      url: url,
+      data: {},
+    })
+      .then((response) => {
+        setMovies(response.data.results);
+      })
+      .catch((err) => console.log(err));
+  };
 
+  useEffect(() => {
+    CityResults();
+  }, [city_id]);
+
+  return (
+    <>
+      <h1 className="results-title"></h1>
+      <div className="center-max-size">
+          <div className="card-list">
+            {movies
+            .filter((movie) => movie.poster_path)
+            .map((movie) => (
+              <MovieCard movie={movie} key={movie.id}
+              MovieInfoControl = {MovieInfoControl}/>
+            ))}
+        </div>
       </div>
-    </div>
-  </div>
-  )
+    </>
+  );
 }
