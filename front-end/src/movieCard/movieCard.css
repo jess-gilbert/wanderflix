@@ -82,6 +82,7 @@
 
 h3.modal--title {
     display: -webkit-inline-box;
+    max-width: 400px;
 }
 
     

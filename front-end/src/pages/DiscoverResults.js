@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from "react";
-import MovieCard  from "../movieCard/movieCard";
+import MovieCard from "../movieCard/movieCard";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import "./DiscoverResults.css";
-import MovieInfoControl from "../movieInfo/movieInfoControl";
-import RomeSkyline from "../images/RomeSkyline.png";
-import ParisSkyline from "../images/ParisSkyline.png";
-import LondonSkyline from "../images/LondonSkyline.png";
-import SingaporeSkyline from "../images/SingaporeSkyline.png";
 
 export default function DiscoverResults() {
 
@@ -46,8 +41,7 @@ export default function DiscoverResults() {
             {movies
             .filter((movie) => movie.poster_path)
             .map((movie) => (
-              <MovieCard movie={movie} key={movie.id}
-              MovieInfoControl = {MovieInfoControl}/>
+              <MovieCard movie={movie} key={movie.id} />
             ))}
         </div>
       </div>
