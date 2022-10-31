@@ -75,7 +75,8 @@ export const removeWatchlist = async (req, res) => {
 /* GET FROM WATCHLIST CONTROLLER*/
 
 export const getWatchlist = async (req, res) => {
-  const user_id = parseInt(req.query.user_id);
+  console.log(req.params);
+  const user_id = parseInt(req.params.user_id);
 
   if (user_id) {
     try {
@@ -88,7 +89,7 @@ export const getWatchlist = async (req, res) => {
           if (result) {
             res.statusCode = 200;
             res.send(result[0]);
-            console.log("sucsessful");
+            console.log("successful");
           }
         });
     } catch (error) {
