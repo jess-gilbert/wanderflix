@@ -21,8 +21,19 @@ There is also a README from React inside this project for more information
 How to set up:
 - Open the back-end folder in VS Code
 - In your terminal run `npm install` 
-- In your terminal run `node mysql.js`
+- In your terminal run `node app.js`
 - Input your SQL password to connect with MySQL Workbench. 
+
+Config:
+- database.js : Database connection function.
+- mysql-config.js : Keeps the configs about mysql connection.
+
+Controller:
+- user.js is for user operations
+- watchlist.js for watchlist functions.
+
+Routes 
+- router.js is general router for all the requests. 
 
 
 ## Database

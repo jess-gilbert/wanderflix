@@ -12,4 +12,4 @@ router.post("/signup", userController.signUp);
 /* Watchlist routes */
 router.post("/watchlist", watchlistController.watchlist);
 router.delete("/watchlist", watchlistController.removeWatchlist);
-router.get("/watchlist/", watchlistController.getWatchlist);
+router.get("/watchlist/:user_id", watchlistController.getWatchlist);
