@@ -7,7 +7,8 @@ export const signin = async (req, res) => {
   const user_password = req.body.user_password;
 
   if (user_email && user_password) {
-    await connection
+    try {
+      await connection
       .promise()
       .query("SELECT user_id as userId FROM users WHERE user_email = ? AND user_password = ?", [
         user_email,
@@ -20,17 +21,10 @@ export const signin = async (req, res) => {
             console.log("successful");
           }
         });
-
-
-    // if (user.length > 0) {
-    //   console.log("user_id" + user)
-    //   console.log("Login successful");
-    //   res.send(user);
-      
-    // } else {
-    //   res.statusCode = 401;
-    //   res.send("Incorrect Username and/or Password!");
-    // }
+    } catch (error) {
+      res.statusCode = 500;
+      res.send(error);
+    }
   } else {
     res.statusCode = 400;
     res.send("Please enter Username and Password!");
