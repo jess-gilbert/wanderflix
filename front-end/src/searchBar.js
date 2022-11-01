@@ -24,11 +24,12 @@ export default function SearchBar() {
           className="input"
           type="text"
           name="query"
-          placeholder="Search your favourite place...i.e. Tokyo"
+          placeholder="Enter your destination"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />
-        <button className="button" type="submit">
+        <button 
+          className="button" type="submit">
           TAKE ME THERE
         </button>
       </form>
