@@ -9,19 +9,27 @@ export const signin = async (req, res) => {
   if (user_email && user_password) {
     try {
       await connection
-      .promise()
-      .query("SELECT user_id as userId FROM users WHERE user_email = ? AND user_password = ?", [
-        user_email,
-        user_password,
-      ]).then(
-        result => {
+        .promise()
+        .query(
+          "SELECT user_id as userId FROM users WHERE user_email = ? AND user_password = ?",
+          [user_email, user_password]
+        )
+        .then((result) => {
           if (result) {
-            res.statusCode = 200;
-            res.send(result[0][0]);
-            console.log("successful");
+            if (result[0][0]) {
+              res.statusCode = 200;
+              res.send(result[0][0]);
+              console.log("successful");
+              console.log(result);
+            } else {
+              res.statusCode = 401;
+              res.send("Incorretct Username and/or Password!");
+              console.log("Incorretct Username and/or Password!");
+            }
           }
         });
     } catch (error) {
+      console.log(error);
       res.statusCode = 500;
       res.send(error);
     }
@@ -47,11 +55,10 @@ export const signUp = async (req, res) => {
         .query(
           "INSERT INTO users (first_name, last_name,user_email,user_password) VALUES (?,?,?,?) ",
           [first_name, last_name, user_email, user_password]
-        ).then(
-          result => {
-            res.send("Signup successful");
-          });
-
+        )
+        .then((result) => {
+          res.send("Signup successful");
+        });
     } catch (error) {
       if (error) {
         if (error?.errno === 1062) {
