@@ -54,12 +54,10 @@ export default function MovieCard({ movie }) {
             className="card--image"
             src={`https://image.tmdb.org/t/p/w185_and_h278_bestv2/${movie.poster_path}`}
             alt={movie.title + "poster"}
-            onClick={handleShow}
-          />
+            onClick={handleShow} />
           <div className="card--content">
-            <h3 className="card--title">{movie.title}</h3>
-            <div class="rating-bar">
-              <small>RATING: {movie.vote_average}</small>
+          <div class="rating-bar">
+          <h3>RATING: {movie.vote_average} <br></br> {"⭐".repeat(movie.vote_average)}</h3>
               {userId && (
                 <button onClick={onClickHeart}>
                   {savedMovie ? (
@@ -69,13 +67,13 @@ export default function MovieCard({ movie }) {
                   )}
                 </button>
               )}
-            </div>
+          </div>
           </div>
         </div>
       </div>
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Modal.Title> Movie Info</Modal.Title>
         </Modal.Header>
         <Modal.Body>
