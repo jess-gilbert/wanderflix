@@ -23,8 +23,9 @@
     display: flex; 
     gap: 30px; 
     justify-content: space-evenly;
-    align-items: center; 
+    align-items: flex-start;
     cursor: pointer;
+    height: 68.45vh;
   }
 
   .p1{
