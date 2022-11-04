@@ -7,6 +7,7 @@ export default function MovieGrid({ movies, title }) {
     <>
       <div className="center-max-size">
         <h1 className="results-title">{title}</h1>
+        {!movies.length && <h2 className="results-title">Results: 0</h2>}
         <div className="card-list">
           {movies
             .filter((movie) => movie.poster_path)

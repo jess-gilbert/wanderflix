@@ -1,6 +1,8 @@
 .App {
   background-color: #1C3738;
   color: white;
+  min-height: 100vh;
+  width: 100vw;
 }
 
 .App p {

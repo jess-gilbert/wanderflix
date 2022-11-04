@@ -12,16 +12,20 @@ body {
     display: flex !important;
 }
 
+.nav-logo{
+    position: absolute;
+    left: 15px;
+}
+
 img {
     max-height: 35px;
 }
-
 
 .nav {
     background-color: #1C3738;
     color: #F4FFF8;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     gap: 1rem;
     padding: 0 1rem;
