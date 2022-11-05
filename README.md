@@ -36,6 +36,7 @@ Routes
 - router.js is general router for all the requests. 
 
 How to run back-end tests:
+-In your terminal run `npm install`
 -In your terminal run `npm test`
 
 ## Database

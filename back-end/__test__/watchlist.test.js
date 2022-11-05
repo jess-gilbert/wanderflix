@@ -19,54 +19,39 @@ const request = require("supertest");
 
 
 
-  describe("Test with added movie", () => {
-    test("It should response the 200", async () => {
+  describe("Watchlist API test", () => {
+    test("Add a movie", async () => {
   
       const response = await request(app).post("/watchlist").send(watchlistAdded.body);
       expect(response.statusCode).toBe(200);
     });
-  });
 
+    test("Bring the movie exists", async () => {
+  
+      const response = await request(app).get("/watchlist/16").send(watchlistAdded.body);
+      expect(response.statusCode).toBe(200);
+    });
 
-  describe("Test with duplicate entry", () => {
-    test("It should response the 403", async () => {
+    test("Add a movie already exits", async () => {
   
       const response = await request(app).post("/watchlist").send(watchlistAdded.body);
       expect(response.statusCode).toBe(403);
     });
-  });
-  
-  
-  describe("Test with deleted movie", () => {
-    test("It should response the 202", async () => {
+
+    test("Remove the added movie", async () => {
   
       const response = await request(app).delete("/watchlist").send(watchlistRemove.body);
       expect(response.statusCode).toBe(202);
     });
-  });
 
-describe("Test with nothing to delete from watchlist", () => {
-    test("It should response the 202", async () => {
-  
+    test("Test nothing to delete from watchlist", async () => {
       const response = await request(app).delete("/watchlist").send(watchlistRemove.body);
       expect(response.statusCode).toBe(200);
     });
-  });
 
-  describe("Test with Bad Request", () => {
-    test("It should response the 400 ", async () => {
-  
+    test("Bad request test", async () => {
       const response = await request(app).post("/watchlist").send();
       expect(response.statusCode).toBe(400);
-    });
-  });
-
-
-  describe("Test with getting the movies in the Watchlist", () => {
-    test("It should response the 200", async () => {
-  
-      const response = await request(app).get("/watchlist/16").send(watchlistAdded.body);
-      expect(response.statusCode).toBe(200);
     });
   });
 
