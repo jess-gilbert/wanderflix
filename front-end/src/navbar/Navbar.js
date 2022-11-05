@@ -1,16 +1,24 @@
 import { useContext } from "react";
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import { Link, useMatch, useNavigate, useResolvedPath } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 import WanderflixLogo from "../images/WLogo.png";
 
 export default function Navbar() {
-  const { userSignedIn } = useContext(GlobalContext);
+  const { userSignedIn, setUserSignedIn, setUserId } =
+    useContext(GlobalContext);
+  const navigate = useNavigate();
+
+  const signOutOnClick = () => {
+    setUserId(null);
+    setUserSignedIn(false);
+    navigate("/SignIn");
+  };
 
   //still need to dispatch user signed in to false when we press sign out
   return (
     <nav className="nav">
       <Link to="/" className="site-title">
-        <img src={WanderflixLogo} alt="Wanderflix Logo" />
+        <img class="nav-logo" src={WanderflixLogo} alt="Wanderflix Logo" />
       </Link>
       <ul>
         <CustomLink to="/Discover">DISCOVER</CustomLink>
@@ -25,8 +33,12 @@ export default function Navbar() {
             <CustomLink to="/SignUp">SIGN UP</CustomLink>
           </>
         )}
-        {userSignedIn && <CustomLink to="/SignIn">SIGN OUT</CustomLink>}
       </ul>
+      {userSignedIn && (
+        <button className="sign-out" onClick={signOutOnClick}>
+          SIGN OUT
+        </button>
+      )}
     </nav>
   );
 }
