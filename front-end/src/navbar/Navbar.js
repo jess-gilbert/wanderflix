@@ -4,13 +4,14 @@ import { GlobalContext } from "../context/GlobalState";
 import WanderflixLogo from "../images/WLogo.png";
 
 export default function Navbar() {
-  const { userSignedIn, setUserSignedIn, setUserId } =
+  const { userSignedIn, setUserSignedIn, setUserId, clearWatchlist } =
     useContext(GlobalContext);
   const navigate = useNavigate();
 
   const signOutOnClick = () => {
     setUserId(null);
     setUserSignedIn(false);
+    clearWatchlist();
     navigate("/SignIn");
   };
 

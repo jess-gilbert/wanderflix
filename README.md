@@ -1,66 +1,41 @@
-# wanderflix
+# Wanderflix
+
+A React, Express and MySQL application by Code First Girls Group 4
 
 ## Front End
 
-How to set up:
-- Open the front-end folder in VS Code
-- In your terminal run `npm install` 
+### Running the Project
+
+- Open the `front-end` folder in your terminal
+- In your terminal run `npm install`
 - In your terminal run `npm start`
 
-- You will also need to install the following React libraries:
+### Testing the Project
 
-- In your terminal run 'npm i react-router-dom'
-- In your terminal run 'npm i react-icons'
-- In your terminal run 'npm i styled-components'
-- In your terminal run 'npm install react-bootstrap bootstrap'
-
-There is also a README from React inside this project for more information
+- Open the `front-end` folder in your terminal
+- In your terminal run `npm install`
+- In your terminal run `npm test`
 
 ## Back End
 
-How to set up:
-- Open the back-end folder in VS Code
-- In your terminal run `npm install` 
+### Running the Project
+
+- Open the `back-end` folder in your terminal
+- Run `./mysql-scripts/movie_db.sql` with your MySQL client
+- Run `./mysql-scripts/mockdata.sql`with your MySQL client
+- In your terminal run `npm install`
+- Update `./config/mysql-config.js` with your MySQL credentials
 - In your terminal run `node server.js`
-- Input your SQL password to connect with MySQL Workbench. 
 
-Config:
-- database.js : Database connection function.
-- mysql-config.js : Keeps the configs about mysql connection.
+### Testing the Project
 
-Controller:
-- user.js is for user operations
-- watchlist.js for watchlist functions.
+- Open the `back-end` folder in your terminal
 
-Routes 
-- router.js is general router for all the requests. 
+- Ensure that you have ran the database scripts (above)
+- In your terminal run `npm install`
+- In your terminal run `npm test`
 
-How to run back-end tests:
--In your terminal run `npm install`
--In your terminal run `npm test`
+### Using Postman to make requests
 
-## Database
-
-wanderflix database has been created.
-
-users 
-- user_id INT can not be null / PRIMARY KEY / UNIQUE KEY / AI
-- user_email varchar(100) can not be null / UNIQUE KEY
-- user_password varchar(15) can not be null
-- first_name varchar(50)
-- last_name varchar (50)
-
-
-user_watchlist 
-- user_id INT can not be null 
-- movie_id varchar(50) can not be null / UNIQUE KEY
-- watchlist_id INT (15) can not be null / PRIMARY KEY / UNIQUE KEY/ AI
-
-
-## POSTMAN
--Postman folder created. Import code on your Postman workspace.
-
-
-
-
-
+- Import `./postman/wanderflix.postman_collection.json` into Postman
+- View the collection and make a request as required

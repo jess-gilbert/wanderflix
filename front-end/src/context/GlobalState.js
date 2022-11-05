@@ -26,6 +26,9 @@ export const GlobalProvider = (props) => {
     removeMovieFromWatchlist: (movie) => {
       dispatch({ type: "REMOVE_MOVIE_FROM_WATCHLIST", movie: movie });
     },
+    clearWatchlist: (movie) => {
+      dispatch({ type: "CLEAR_WATCHLIST" });
+    },
     setUserSignedIn: (userSignedIn) => {
       dispatch({ type: "SET_USER_SIGNED_IN", userSignedIn: userSignedIn });
     },

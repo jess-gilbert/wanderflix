@@ -12,6 +12,11 @@ export default (state, action) => {
           (movie) => movie.id !== action.movie.id
         ),
       };
+    case "CLEAR_WATCHLIST":
+      return {
+        ...state,
+        watchlist: [],
+      };
     case "SET_USER_SIGNED_IN":
       return {
         ...state,
