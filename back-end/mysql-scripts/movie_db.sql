@@ -1,4 +1,4 @@
-DROP DATABASE wanderflix;
+DROP DATABASE IF EXISTS wanderflix;
 
 CREATE DATABASE wanderflix;
 

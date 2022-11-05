@@ -12,7 +12,7 @@ function SignIn() {
   const [responseError, setResponseError] = useState(null);
   const [isSubmit, setIsSubmit] = useState(false);
   const navigate = useNavigate();
-  const { setUserSignedIn, setUserId, addMovieToWatchlist } =
+  const { setUserSignedIn, setUserId, addMovieToWatchlist, clearWatchlist } =
     useContext(GlobalContext);
 
   const handleChange = (e) => {
@@ -63,6 +63,7 @@ function SignIn() {
       })
         .then((response) => {
           if (response.status === 200) {
+            clearWatchlist();
             getWatchlist(response.data.userId);
             setUserSignedIn(true);
             setUserId(response.data.userId);
