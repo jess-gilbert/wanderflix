@@ -3,8 +3,8 @@ import { router } from "./routes/router.js";
 import bodyParser from "body-parser";
 import cors from "cors";
 
-const app = express();
-const port = 4000;
+export const app = express();
+
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -16,6 +16,6 @@ app.get('/', (req, res) => {
     res.send('Hello World');
 })
 
-app.listen(port, () => {
-    console.log(`Wanderflix BE is started on port ${port}`)
-})
+
+export default app;
+

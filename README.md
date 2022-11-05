@@ -21,7 +21,7 @@ There is also a README from React inside this project for more information
 How to set up:
 - Open the back-end folder in VS Code
 - In your terminal run `npm install` 
-- In your terminal run `node app.js`
+- In your terminal run `node server.js`
 - Input your SQL password to connect with MySQL Workbench. 
 
 Config:
@@ -35,6 +35,9 @@ Controller:
 Routes 
 - router.js is general router for all the requests. 
 
+How to run back-end tests:
+-In your terminal run `npm install`
+-In your terminal run `npm test`
 
 ## Database
 

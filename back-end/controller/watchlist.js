@@ -53,8 +53,10 @@ export const removeWatchlist = async (req, res) => {
         .then((result) => {
           if (result[0].affectedRows != 0) {
             console.log("Item deleted");
-            res.send("Deleted");
             res.statusCode = 202;
+            res.send("Deleted");
+            
+
           } else {
             console.log("nothing to delete");
             res.statusCode = 200;
