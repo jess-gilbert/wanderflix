@@ -18,7 +18,7 @@ export default function Navbar() {
   return (
     <nav className="nav">
       <Link to="/" className="site-title">
-        <img class="nav-logo" src={WanderflixLogo} alt="Wanderflix Logo" />
+        <img className="nav-logo" src={WanderflixLogo} alt="Wanderflix Logo" />
       </Link>
       <ul>
         <CustomLink to="/Discover">DISCOVER</CustomLink>
